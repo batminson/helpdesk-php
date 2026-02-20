@@ -9,7 +9,7 @@
 <h2>Formulario de Soporte Técnico</h2>
 
 <form action="resultado.php" method="post">
-    <label>Nombre y Apellido:</label><br>
+    <label>Nombre:</label><br>
     <input type="text" name="nombre" required><br><br>
 
     <label>Email:</label><br>
@@ -24,3 +24,4 @@
 </body>
 
 </html>
+
