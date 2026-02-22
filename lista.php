@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+    
+<?php
 require 'db.php';
 
 $result = $db->query("SELECT * FROM tickets ORDER BY id DESC");
@@ -30,3 +39,4 @@ while ($row = $result->fetchArray()) {
 }
 
 echo "</table>";
+
