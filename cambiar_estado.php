@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin'])) {
 
 require 'db.php';
 
-if (!isset($_GET['id'], $_GET['estado'])) {
+if (!isset($_GET['id']) || !isset($_GET['estado'])) {
     header("Location: lista.php");
     exit;
 }
