@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.php");
+    exit;
+}
+
+require 'db.php';
+
+<?php
 require 'db.php';
 
 if (isset($_GET['id']) && isset($_GET['estado'])) {
