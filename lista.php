@@ -14,6 +14,11 @@ echo "<table border='1' cellpadding='5'>
 </tr>";
 
 while ($row = $result->fetchArray()) {
+    <td>
+    <a href="cambiar_estado.php?id=<?= $row['id'] ?>&estado=Pendiente">🟡 Pendiente</a> |
+    <a href="cambiar_estado.php?id=<?= $row['id'] ?>&estado=En proceso">🔵 En proceso</a> |
+    <a href="cambiar_estado.php?id=<?= $row['id'] ?>&estado=Cerrado">🟢 Cerrado</a>
+    </td>
     echo "<tr>";
     echo "<td>TCK-" . $row['id'] . "</td>";
     echo "<td>{$row['nombre']}</td>";
@@ -24,3 +29,4 @@ while ($row = $result->fetchArray()) {
 }
 
 echo "</table>";
+
