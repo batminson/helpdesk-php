@@ -9,9 +9,8 @@ if (!isset($_SESSION['admin'])) {
 require 'db.php';
 
 /* =========================
-   CAMBIO DE ESTADO
+   VALIDAR DATOS
 ========================= */
-
 if (!isset($_GET['id'], $_GET['estado'])) {
     header("Location: lista.php");
     exit;
@@ -20,6 +19,9 @@ if (!isset($_GET['id'], $_GET['estado'])) {
 $id = (int) $_GET['id'];
 $estado = $_GET['estado'];
 
+/* =========================
+   ACTUALIZAR ESTADO
+========================= */
 $stmt = $db->prepare("UPDATE tickets SET estado = :estado WHERE id = :id");
 $stmt->bindValue(':estado', $estado, SQLITE3_TEXT);
 $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
@@ -28,34 +30,34 @@ $stmt->execute();
 /* =========================
    OBTENER DATOS DEL TICKET
 ========================= */
-
 $ticket = $db->querySingle(
     "SELECT nombre, email, problema FROM tickets WHERE id = $id",
     true
 );
 
 /* =========================
-   ENVÍO DE CORREO (SEGURO)
+   PHPMailer + BREVO
 ========================= */
-
+require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 try {
     $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';   // CAMBIA SI USAS OTRO
-    $mail->SMTPAuth = true;
-    $mail->Username = '75e3da84e9e526';
-    $mail->Password = 'e3d75e9bdd7932';
-    $mail->Port = 2525;
-    $mail->SMTPDebug = 0; // MUY IMPORTANTE
 
-    $mail->setFrom('soporte@helpdesk.com', 'Soporte Técnico');
+    $mail->isSMTP();
+    $mail->Host = 'smtp-relay.brevo.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'a30374001@smtp-brevo.com';   // 👈 de Brevo
+    $mail->Password = 'xsmtpsib-affe189e236fdbe23c45e494569c414fc3d59fcf3e5644658e36fe15654d0d72-lF41bveuqjUb26cG
+';     // 👈 de Brevo
+    $mail->Port = 587;
+    $mail->SMTPDebug = 0; // 🔑 clave para Railway
+
+    $mail->setFrom('soporte@helpdesk.com', 'Soporte Helpdesk');
     $mail->addAddress($ticket['email'], $ticket['nombre']);
 
     $mail->isHTML(true);
@@ -63,20 +65,20 @@ try {
     $mail->Body = "
         <p>Hola <strong>{$ticket['nombre']}</strong>,</p>
         <p>Tu ticket ha cambiado de estado.</p>
-        <p><strong>Nuevo estado:</strong> $estado</p>
+        <p><strong>Nuevo estado:</strong> <b>$estado</b></p>
         <p><strong>Problema:</strong> {$ticket['problema']}</p>
         <br>
         <p>Soporte Técnico</p>
     ";
 
     $mail->send();
+
 } catch (Exception $e) {
-    // ❗ Si el correo falla, NO pasa nada
+    // Si el correo falla, NO se cae la app
 }
 
 /* =========================
-   VOLVER A LA LISTA
+   VOLVER A LISTA
 ========================= */
-
 header("Location: lista.php");
 exit;
