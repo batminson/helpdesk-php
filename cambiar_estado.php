@@ -52,8 +52,7 @@ try {
     $mail->Host = 'smtp-relay.brevo.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'a30374001@smtp-brevo.com';   // 👈 de Brevo
-    $mail->Password = 'xsmtpsib-affe189e236fdbe23c45e494569c414fc3d59fcf3e5644658e36fe15654d0d72-lF41bveuqjUb26cG
-';     // 👈 de Brevo
+    $mail->Password = 'bskyYnVFz9CVirx';     // 👈 de Brevo
     $mail->Port = 587;
     $mail->SMTPDebug = 0; // 🔑 clave para Railway
 
