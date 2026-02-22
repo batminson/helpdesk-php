@@ -29,13 +29,14 @@ while ($row = $result->fetchArray()) {
     echo "<td>{$row['problema']}</td>";
     echo "<td>{$row['estado']}</td>";
     echo "<td>
-        <a href='cambiar_estado.php?id={$row['id']}&estado=Pendiente'>🟡 Pendiente</a> |
-        <a href='cambiar_estado.php?id={$row['id']}&estado=En proceso'>🔵 En proceso</a> |
-        <a href='cambiar_estado.php?id={$row['id']}&estado=Cerrado'>🟢 Cerrado</a>
+        <a href='cambiar_estado.php?id={$row['id']}&estado=pendiente'>🟡 Pendiente</a> |
+        <a href='cambiar_estado.php?id={$row['id']}&estado=en_proceso'>🔵 En proceso</a> |
+        <a href='cambiar_estado.php?id={$row['id']}&estado=cerrado'>🟢 Cerrado</a>
     </td>";
     echo "</tr>";
 }
 
 echo "</table>";
+
 
 
