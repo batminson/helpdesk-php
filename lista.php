@@ -10,6 +10,17 @@ require 'db.php';
 
 $result = $db->query("SELECT * FROM tickets ORDER BY id DESC");
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tickets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+</body>
+</html>
+    
 echo "<h2>Lista de Tickets</h2>";
 echo "<table border='1' cellpadding='5'>
 <tr>
@@ -37,6 +48,7 @@ while ($row = $result->fetchArray()) {
 }
 
 echo "</table>";
+
 
 
 
