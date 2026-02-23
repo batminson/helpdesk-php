@@ -25,9 +25,16 @@
 <?php
 require 'db.php';
 
-$nombre   = $_POST['nombre'] ?? '';
-$email    = $_POST['email'] ?? '';
-$problema = $_POST['problema'] ?? '';
+$stmt = $pdo->prepare(
+    "INSERT INTO tickets (nombre, email, problema, estado)
+     VALUES (?, ?, ?, 'Pendiente')"
+);
+
+$stmt->execute([
+    $_POST['nombre'],
+    $_POST['email'],
+    $_POST['problema']
+]);
 
 $stmt = $db->prepare("
     INSERT INTO tickets (nombre, email, problema, estado)
@@ -41,6 +48,7 @@ $stmt->execute();
 
 echo "<h2>Buen día</h2>";
 echo "<a href='lista.php'>Ver tickets</a>";
+
 
 
 
