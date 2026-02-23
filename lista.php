@@ -17,8 +17,6 @@ $result = $db->query("SELECT * FROM tickets ORDER BY id DESC");
     <title>Lista de Tickets</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-</body>
 </html>
     
 echo "<h2>Lista de Tickets</h2>";
@@ -48,6 +46,7 @@ while ($row = $result->fetchArray()) {
 }
 
 echo "</table>";
+
 
 
 
