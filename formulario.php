@@ -6,22 +6,25 @@
 </head>
 <body>
 
-<h2>Formulario de Soporte Técnico</h2>
+<div class="container" style="max-width:500px">
+    <h2>🎫 Crear Ticket de Soporte</h2>
 
-<form action="resultado.php" method="post">
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre" required><br><br>
+    <form method="post" action="resultado.php">
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-    <label>Problema:</label><br>
-    <textarea name="problema" required></textarea><br><br>
+        <label>Describe el problema</label>
+        <textarea name="problema" rows="4" required></textarea>
 
-    <button type="submit">Enviar Ticket</button>
-</form>
+        <button type="submit">Enviar Ticket</button>
+    </form>
+</div>
 
 </body>
 
 </html>
+
 
