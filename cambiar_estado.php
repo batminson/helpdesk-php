@@ -8,9 +8,16 @@ if (!isset($_SESSION['admin'])) {
 
 require 'db.php';
 
-if (!isset($_GET['id'], $_GET['estado'])) {
-    header("Location: lista.php");
-    exit;
+$id = $_GET['id'];
+$estado = $_GET['estado'];
+
+$stmt = $pdo->prepare(
+    "UPDATE tickets SET estado=? WHERE id=?"
+);
+$stmt->execute([$estado, $id]);
+
+header("Location: lista.php");
+exit;
 }
 
 $id = (int) $_GET['id'];
