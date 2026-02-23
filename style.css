@@ -30,6 +30,14 @@ a {
     font-weight: bold;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .estado-pendiente { color: orange; }
 .estado-proceso { color: blue; }
 .estado-cerrado { color: green; }
