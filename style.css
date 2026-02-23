@@ -41,3 +41,34 @@ a:hover {
 .estado-pendiente { color: orange; }
 .estado-proceso { color: blue; }
 .estado-cerrado { color: green; }
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn {
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.pendiente {
+    background: #f39c12;
+}
+
+.proceso {
+    background: #3498db;
+}
+
+.cerrado {
+    background: #2ecc71;
+}
