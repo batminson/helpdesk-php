@@ -134,3 +134,23 @@ table {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
+
+.problema {
+    text-align: left;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+table {
+    margin-top: 15px;
+}
+
+th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    font-size: 14px;
+}
