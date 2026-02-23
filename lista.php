@@ -7,6 +7,7 @@
 </head>
 <body>
     <header class="topbar">
+        <a href="logout.php" style="color:white">Salir</a>
     <h1>🎫 Helpdesk – Panel de Tickets</h1>
     <span>Administrador</span>
 </header>
@@ -66,6 +67,7 @@ echo "</div>";
 
 </body>
 </html>
+
 
 
 
