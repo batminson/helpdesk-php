@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="topbar">
+    <h1>🎫 Helpdesk – Panel de Tickets</h1>
+    <span>Administrador</span>
+</header>
 
 <?php
 require 'db.php';
@@ -45,6 +49,7 @@ echo "</table>";
 
 </body>
 </html>
+
 
 
 
