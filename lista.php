@@ -32,10 +32,10 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     echo "<td>{$row['email']}</td>";
     echo "<td>{$row['problema']}</td>";
     echo "<td>{$row['estado']}</td>";
-    echo "<td>
-        <a href='cambiar_estado.php?id={$row['id']}&estado=Pendiente'>🟡 Pendiente</a> |
-        <a href='cambiar_estado.php?id={$row['id']}&estado=En proceso'>🔵 En proceso</a> |
-        <a href='cambiar_estado.php?id={$row['id']}&estado=Cerrado'>🟢 Cerrado</a>
+    echo "<td class='acciones'>
+        <a class='btn pendiente' href='cambiar_estado.php?id={$row['id']}&estado=Pendiente'>🟡 Pendiente</a>
+        <a class='btn proceso' href='cambiar_estado.php?id={$row['id']}&estado=En proceso'>🔵 En proceso</a>
+        <a class='btn cerrado' href='cambiar_estado.php?id={$row['id']}&estado=Cerrado'>🟢 Cerrado</a>
     </td>";
     echo "</tr>";
 }
@@ -45,5 +45,6 @@ echo "</table>";
 
 </body>
 </html>
+
 
 
