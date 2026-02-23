@@ -16,6 +16,7 @@ require 'db.php';
 
 $result = $db->query("SELECT * FROM tickets ORDER BY id DESC");
 
+echo "<div class='container'>";
 echo "<h2>Lista de Tickets</h2>";
 
 echo "<table>
@@ -53,10 +54,12 @@ echo "<td><span class='$claseEstado'>$estado</span></td>";
 }
 
 echo "</table>";
+echo "</div>";
 ?>
 
 </body>
 </html>
+
 
 
 
