@@ -72,3 +72,11 @@ a:hover {
 .cerrado {
     background: #2ecc71;
 }
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tr:hover {
+    background: #eef3f7;
+}
