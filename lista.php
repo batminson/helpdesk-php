@@ -17,7 +17,7 @@
 <?php
 require 'db.php';
 
-$result = $db->query("SELECT * FROM tickets ORDER BY id DESC");
+$stmt = $pdo->query("SELECT * FROM tickets ORDER BY id DESC");
 
 echo "<div class='container'>";
 echo "<h2>Lista de Tickets</h2>";
@@ -33,7 +33,9 @@ echo "<table>
 </tr>";
 
 $esAdmin = isset($_SESSION['admin']);
-while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    // tu código actual
+}
 
     echo "<tr>";
     echo "<td>TCK-{$row['id']}</td>";
@@ -67,6 +69,7 @@ echo "</div>";
 
 </body>
 </html>
+
 
 
 
