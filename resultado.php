@@ -9,7 +9,7 @@
 
 <div class="container" style="max-width:500px; text-align:center">
     <div class="exito">✅</div>
-    <h2>Ticket enviado correctamente</h2>
+    <h2>Ticket creado y enviado correctamente</h2>
 
     <p class="mensaje">
         Hemos recibido tu solicitud.<br>
@@ -39,7 +39,8 @@ $stmt->bindValue(':email', $email);
 $stmt->bindValue(':problema', $problema);
 $stmt->execute();
 
-echo "<h2>Ticket creado correctamente</h2>";
+echo "<h2>Buen día</h2>";
 echo "<a href='lista.php'>Ver tickets</a>";
+
 
 
