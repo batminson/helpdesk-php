@@ -35,7 +35,15 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     echo "<td>{$row['nombre']}</td>";
     echo "<td>{$row['email']}</td>";
     echo "<td>{$row['problema']}</td>";
-    echo "<td>{$row['estado']}</td>";
+    $estado = $row['estado'];
+$claseEstado = match ($estado) {
+    'Pendiente' => 'badge pendiente',
+    'En proceso' => 'badge proceso',
+    'Cerrado' => 'badge cerrado',
+    default => 'badge'
+};
+
+echo "<td><span class='$claseEstado'>$estado</span></td>";
     echo "<td class='acciones'>
         <a class='btn pendiente' href='cambiar_estado.php?id={$row['id']}&estado=Pendiente'>🟡 Pendiente</a>
         <a class='btn proceso' href='cambiar_estado.php?id={$row['id']}&estado=En proceso'>🔵 En proceso</a>
@@ -49,6 +57,7 @@ echo "</table>";
 
 </body>
 </html>
+
 
 
 
