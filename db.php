@@ -1,9 +1,9 @@
 <?php
-$host = "sql5.freesqldatabase.com";
-$db   = "sql5817833";
-$user = "sql5817833";
-$pass = "R3fZhGWhbm";
-$port = 3306;
+$host = getenv("mysql.railway.internal");
+$db   = getenv("railway");
+$user = getenv("root");
+$pass = getenv("bFBWXRFNTrnjBxhuGOKYdDQcczhlrYsx");
+$port = getenv("3306");
 
 try {
     $pdo = new PDO(
