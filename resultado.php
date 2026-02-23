@@ -8,10 +8,13 @@
 <body>
 
 <div class="container" style="max-width:500px; text-align:center">
-    <h2>✅ Ticket enviado correctamente</h2>
+    <div class="exito">✅</div>
+    <h2>Ticket enviado correctamente</h2>
 
-    <p>Hemos recibido tu solicitud.<br>
-    Nuestro técnico te responderá pronto.</p>
+    <p class="mensaje">
+        Hemos recibido tu solicitud.<br>
+        Nuestro técnico te responderá pronto.
+    </p>
 
     <a href="formulario.php" class="btn volver">Crear otro ticket</a>
 </div>
@@ -38,4 +41,5 @@ $stmt->execute();
 
 echo "<h2>Ticket creado correctamente</h2>";
 echo "<a href='lista.php'>Ver tickets</a>";
+
 
