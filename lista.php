@@ -10,6 +10,8 @@
     <h1>🎫 Helpdesk – Panel de Tickets</h1>
     <span>Administrador</span>
 </header>
+    
+<?php session_start(); ?>
 
 <?php
 require 'db.php';
@@ -29,6 +31,7 @@ echo "<table>
 <th>Acciones</th>
 </tr>";
 
+$esAdmin = isset($_SESSION['admin']);
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 
     echo "<tr>";
@@ -45,11 +48,15 @@ $claseEstado = match ($estado) {
 };
 
 echo "<td><span class='$claseEstado'>$estado</span></td>";
+    if ($esAdmin) {
     echo "<td class='acciones'>
         <a class='btn pendiente' href='cambiar_estado.php?id={$row['id']}&estado=Pendiente'>🟡 Pendiente</a>
         <a class='btn proceso' href='cambiar_estado.php?id={$row['id']}&estado=En proceso'>🔵 En proceso</a>
         <a class='btn cerrado' href='cambiar_estado.php?id={$row['id']}&estado=Cerrado'>🟢 Cerrado</a>
     </td>";
+} else {
+    echo "<td><em>Solo admin</em></td>";
+}
     echo "</tr>";
 }
 
@@ -59,6 +66,7 @@ echo "</div>";
 
 </body>
 </html>
+
 
 
 
