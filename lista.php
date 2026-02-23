@@ -35,7 +35,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
     echo "<td>TCK-{$row['id']}</td>";
     echo "<td>{$row['nombre']}</td>";
     echo "<td>{$row['email']}</td>";
-    echo "<td>{$row['problema']}</td>";
+    echo "<td class='problema'>{$row['problema']}</td>";
     $estado = $row['estado'];
 $claseEstado = match ($estado) {
     'Pendiente' => 'badge pendiente',
@@ -59,6 +59,7 @@ echo "</div>";
 
 </body>
 </html>
+
 
 
 
