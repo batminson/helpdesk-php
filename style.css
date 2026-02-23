@@ -101,3 +101,27 @@ tr:hover {
     font-size: 14px;
     opacity: 0.8;
 }
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: white;
+    display: inline-block;
+}
+
+.badge.pendiente {
+    background: #f39c12;
+}
+
+.badge.proceso {
+    background: #3498db;
+}
+
+.badge.cerrado {
+    background: #2ecc71;
+}
+
+table {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
